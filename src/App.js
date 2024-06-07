@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import { Pagination } from "antd";
+import Menu from "./component/navbar/Menu";
+import Dashboard from "./component/Dashboard";
+import Orders from "./component/Orders";
+import Product from "./component/Product";
+import Customers from "./component/Customers";
+import Categories from "./component/Categories";
+import Stores from "./component/Stores";
+import Couriers from "./component/Couriers";
+import LogOut from "./component/LogOut";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="container">
+        <div className="menu">
+          <Menu />
+        </div>
+
+        <div className="content">
+          <Routes>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/customers" element={<Customers />} />
+            <Route path="/product" element={<Product />} />
+            <Route path="/categories" element={<Categories />} />
+            <Route path="/stores" element={<Stores />} />
+            <Route path="/couriers" element={<Couriers />} />
+            <Route path="/logout" element={<LogOut />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

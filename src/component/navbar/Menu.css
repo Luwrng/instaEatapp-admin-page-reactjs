@@ -1,0 +1,16 @@
+/* Menu.css */
+.container {
+  display: flex;
+  height: 100vh; /* Đặt chiều cao 100% chiều cao viewport */
+}
+
+.menu {
+  width: 256px;
+  background-color: #fbfbfb; /* Màu nền của menu */
+}
+
+.content {
+  flex: 1;
+  padding: 20px; /* Khoảng cách trong cho nội dung */
+  background-color: #f0f2f5; /* Màu nền cho nội dung */
+}
