@@ -13,6 +13,7 @@ import EditUser from "./component/user/EditUser";
 // import LogOut from "./component/LogOut";
 import User from "./component/user/User";
 import Restaurant from "./component/restaurant/Restaurant";
+import ListFood from "./component/restaurant/listFood";
 
 const App = () => {
   return (
@@ -27,6 +28,8 @@ const App = () => {
             <Route path="/user" element={<User />} />
             <Route path="/edit/:id" element={<EditUser />} />
             <Route path="/restaurant" element={<Restaurant />} />
+            <Route path="/list_food/:list_food" element={<ListFood />} />
+            {/* Định tuyến cho trang danh sách món ăn */}
             {/* <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/customers" element={<Customers />} />

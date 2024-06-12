@@ -10,23 +10,25 @@ import { useNavigate } from "react-router-dom";
 import userapi from "./userapi";
 const { Meta } = Card;
 
+
+//page size
 const User = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 18; // Number of cards per page
+  const pageSize = 18; 
   const navigate = useNavigate();
 
   const handleChangePage = (page) => {
     setCurrentPage(page);
   };
+  //click to link edit information user
   const handleEditClick = (id) => {
     console.log("Edit icon clicked for user:", id);
     navigate(`/edit/${id}`);
-
   };
 
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = startIndex + pageSize;
-    const currentUsers = userapi.slice(startIndex, endIndex);
+  const currentUsers = userapi.slice(startIndex, endIndex);
 
   return (
     <div style={{ padding: "20px", textAlign: "center" }}>
@@ -53,7 +55,11 @@ const User = () => {
             <Meta
               avatar={<Avatar src={user.avatar} />}
               title={user.name}
-              description={user.description}
+              description={ <>
+                <div>{user.description}</div>
+                <div>{user.phone_number}</div>
+              </>}
+              
             />
           </Card>
         ))}
