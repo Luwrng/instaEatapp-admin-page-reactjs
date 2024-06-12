@@ -4,46 +4,7 @@ import { Card, Col, Row, Pagination } from "antd";
 const { Meta } = Card;
 
 const cardData = [
-  {
-    title: "Europe Street beat",
-    description: "www.instagram.com",
-    image: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-  },
-  {
-    title: "Europe Street beat",
-    description: "www.instagram.com",
-    image: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-  },
-  {
-    title: "Europe Street beat",
-    description: "www.instagram.com",
-    image: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-  },
-  {
-    title: "Europe Street beat",
-    description: "www.instagram.com",
-    image: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-  },
-  {
-    title: "Europe Street beat",
-    description: "www.instagram.com",
-    image: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-  },
-  {
-    title: "Europe Street beat",
-    description: "www.instagram.com",
-    image: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-  },
-  {
-    title: "Europe Street beat",
-    description: "www.instagram.com",
-    image: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-  },
-  {
-    title: "Europe Street beat",
-    description: "www.instagram.com",
-    image: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-  },
+ 
   {
     title: "Europe Street beat",
     description: "www.instagram.com",

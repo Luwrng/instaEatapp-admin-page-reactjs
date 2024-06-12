@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import {
-  ShoppingOutlined,
-  PieChartOutlined,
+  // ShoppingOutlined,
+  // PieChartOutlined,
+  // UserOutlined,
+  // TagsOutlined,
+  // AppstoreOutlined,
+  // SkinOutlined,
+  // LoginOutlined,
+  HomeOutlined,
   UserOutlined,
-  TagsOutlined,
-  AppstoreOutlined,
-  SkinOutlined,
-  LoginOutlined,
+  ShopOutlined,
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { Menu } from "antd";
@@ -18,60 +21,79 @@ const MenuComponent = () => {
   const items = [
     {
       key: "0",
-      icon: <PieChartOutlined />,  
+      icon: <HomeOutlined />,
       label: "Home",
       link: "/",
     },
-
     {
       key: "1",
-      icon: <PieChartOutlined />,  
-      label: "Dashboard",
-      link: "/dashboard",
+      icon: <UserOutlined />,
+      label: "User",
+      link: "/user",
     },
-
     {
       key: "2",
-      icon: <ShoppingOutlined />,
-      label: "Orders",
-      link: "/orders",
+      icon: <ShopOutlined />,
+      label: "Restaurant",
+      link: "/restaurant",
     },
-    {
-      key: "3",
-      icon: <UserOutlined />,
-      label: "Customers",
-      link: "/customers",
-    },
-    {
-      key: "4",
-      icon: <TagsOutlined />,
-      label: "Product",
-      link: "/product",
-    },
-    {
-      key: "5",
-      icon: <TagsOutlined />,
-      label: "Categories",
-      link: "/categories",
-    },
-    {
-      key: "6",
-      icon: <AppstoreOutlined />,
-      label: "Stores",
-      link: "/stores",
-    },
-    {
-      key: "7",
-      icon: <SkinOutlined />,
-      label: "Couriers",
-      link: "/couriers",
-    },
-    {
-      key: "8",
-      icon: <LoginOutlined />,
-      label: "LogOut",
-      link: "/logout",
-    },
+
+    // {
+    //   key: "0",
+    //   icon: <PieChartOutlined />,
+    //   label: "Home",
+    //   link: "/",
+    // },
+
+    // {
+    //   key: "1",
+    //   icon: <PieChartOutlined />,
+    //   label: "Dashboard",
+    //   link: "/dashboard",
+    // },
+
+    // {
+    //   key: "2",
+    //   icon: <ShoppingOutlined />,
+    //   label: "Orders",
+    //   link: "/orders",
+    // },
+    // {
+    //   key: "3",
+    //   icon: <UserOutlined />,
+    //   label: "Customers",
+    //   link: "/customers",
+    // },
+    // {
+    //   key: "4",
+    //   icon: <TagsOutlined />,
+    //   label: "Product",
+    //   link: "/product",
+    // },
+    // {
+    //   key: "5",
+    //   icon: <TagsOutlined />,
+    //   label: "Categories",
+    //   link: "/categories",
+    // },
+    // {
+    //   key: "6",
+    //   icon: <AppstoreOutlined />,
+    //   label: "Stores",
+    //   link: "/stores",
+    // },
+    // {
+    //   key: "7",
+    //   icon: <SkinOutlined />,
+    //   label: "Couriers",
+    //   link: "/couriers",
+    // },
+    // {
+    //   key: "8",
+    //   icon: <LoginOutlined />,
+    //   label: "LogOut",
+    //   link: "/logout",
+    // },
   ];
 
   const handleClick = (e) => {
