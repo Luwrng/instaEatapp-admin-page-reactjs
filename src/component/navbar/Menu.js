@@ -1,15 +1,9 @@
 import React, { useState } from "react";
 import {
-  // ShoppingOutlined,
-  // PieChartOutlined,
-  // UserOutlined,
-  // TagsOutlined,
-  // AppstoreOutlined,
-  // SkinOutlined,
-  // LoginOutlined,
   HomeOutlined,
   UserOutlined,
   ShopOutlined,
+  LogoutOutlined,
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { Menu } from "antd";
@@ -23,7 +17,7 @@ const MenuComponent = () => {
       key: "0",
       icon: <HomeOutlined />,
       label: "Home",
-      link: "/",
+      link: "/home",
     },
     {
       key: "1",
@@ -37,70 +31,28 @@ const MenuComponent = () => {
       label: "Restaurant",
       link: "/restaurant",
     },
-
-    // {
-    //   key: "0",
-    //   icon: <PieChartOutlined />,
-    //   label: "Home",
-    //   link: "/",
-    // },
-
-    // {
-    //   key: "1",
-    //   icon: <PieChartOutlined />,
-    //   label: "Dashboard",
-    //   link: "/dashboard",
-    // },
-
-    // {
-    //   key: "2",
-    //   icon: <ShoppingOutlined />,
-    //   label: "Orders",
-    //   link: "/orders",
-    // },
-    // {
-    //   key: "3",
-    //   icon: <UserOutlined />,
-    //   label: "Customers",
-    //   link: "/customers",
-    // },
-    // {
-    //   key: "4",
-    //   icon: <TagsOutlined />,
-    //   label: "Product",
-    //   link: "/product",
-    // },
-    // {
-    //   key: "5",
-    //   icon: <TagsOutlined />,
-    //   label: "Categories",
-    //   link: "/categories",
-    // },
-    // {
-    //   key: "6",
-    //   icon: <AppstoreOutlined />,
-    //   label: "Stores",
-    //   link: "/stores",
-    // },
-    // {
-    //   key: "7",
-    //   icon: <SkinOutlined />,
-    //   label: "Couriers",
-    //   link: "/couriers",
-    // },
-    // {
-    //   key: "8",
-    //   icon: <LoginOutlined />,
-    //   label: "LogOut",
-    //   link: "/logout",
-    // },
+    {
+      key: "3",
+      icon: <LogoutOutlined />,
+      label: "Logout",
+      link: "/logout",
+    },
   ];
 
   const handleClick = (e) => {
     const clickedItem = items.find((item) => item.key === e.key);
     if (clickedItem) {
-      navigate(clickedItem.link);
+      if (clickedItem.label === "Logout") {
+        handleLogout();
+      } else {
+        navigate(clickedItem.link);
+      }
     }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("user-info"); // Xóa thông tin người dùng từ localStorage
+    navigate("/"); // Điều hướng về trang đăng nhập
   };
 
   const getLevelKeys = (items1) => {

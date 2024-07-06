@@ -1,19 +1,14 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import { Pagination } from "antd";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Menu from "./component/navbar/Menu";
 import EditUser from "./component/user/EditUser";
-// import Dashboard from "./component/Dashboard";
-// import Orders from "./component/Orders";
-// import Product from "./component/Product";
-// import Customers from "./component/Customers";
-// import Categories from "./component/Categories";
-// import Stores from "./component/Stores";
-// import Couriers from "./component/Couriers";
-// import LogOut from "./component/LogOut";
 import User from "./component/user/User";
 import Restaurant from "./component/restaurant/Restaurant";
 import ListFood from "./component/restaurant/listFood";
+import Homepage from "./component/home/Homepage";
+import LoginForm from "./component/Login/LoginForm";
+import AddUserForm from "./component/user/AddUserForm";
+import AddRestaurant from "./component/restaurant/AddRestaurant";
 
 const App = () => {
   return (
@@ -25,19 +20,14 @@ const App = () => {
 
         <div className="content">
           <Routes>
+            <Route path="/" element={<LoginForm />} />
+            <Route path="/home" element={<Homepage />} />
             <Route path="/user" element={<User />} />
-            <Route path="/edit/:id" element={<EditUser />} />
+            <Route path="/edit-user/:id" element={<EditUser />} />
+            <Route path="/add-user" element={<AddUserForm />} />
             <Route path="/restaurant" element={<Restaurant />} />
+            <Route path="/add-restaurant" element={<AddRestaurant />} />
             <Route path="/list_food/:list_food" element={<ListFood />} />
-            {/* Định tuyến cho trang danh sách món ăn */}
-            {/* <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/orders" element={<Orders />} />
-            <Route path="/customers" element={<Customers />} />
-            <Route path="/product" element={<Product />} />
-            <Route path="/categories" element={<Categories />} />
-            <Route path="/stores" element={<Stores />} />
-            <Route path="/couriers" element={<Couriers />} />
-            <Route path="/logout" element={<LogOut />} /> */}
           </Routes>
         </div>
       </div>
