@@ -51,8 +51,10 @@ const MenuComponent = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("user-info"); // Xóa thông tin người dùng từ localStorage
-    navigate("/"); // Điều hướng về trang đăng nhập
+    localStorage.removeItem("user"); // Xóa thông tin người dùng từ localStorage
+    localStorage.removeItem("token");
+    // navigate("/"); // Điều hướng về trang đăng nhập
+    window.location.href = "/";
   };
 
   const getLevelKeys = (items1) => {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Statistic, Card, Row, Col } from "antd";
-import axios from "axios";
+import apiClient from "../../api/axios";
 
 const Homepage = () => {
   const [userData, setUserData] = useState([]);
@@ -8,20 +8,20 @@ const Homepage = () => {
 
   useEffect(() => {
     // Fetch user data
-    axios
-      .get("/api/users")
+    apiClient
+      .get("/Account")
       .then((response) => {
-        setUserData(response.data);
+        setUserData(response.data?.items);
       })
       .catch((error) => {
         console.error("Error fetching user data:", error);
       });
 
     // Fetch restaurant data
-    axios
-      .get("/api/restaurants")
+    apiClient
+      .get("/Restaurant")
       .then((response) => {
-        setRestaurantData(response.data);
+        setRestaurantData(response.data?.items);
       })
       .catch((error) => {
         console.error("Error fetching restaurant data:", error);

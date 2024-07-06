@@ -9,25 +9,79 @@ import Homepage from "./component/home/Homepage";
 import LoginForm from "./component/Login/LoginForm";
 import AddUserForm from "./component/user/AddUserForm";
 import AddRestaurant from "./component/restaurant/AddRestaurant";
+import PrivateRouter from "./component/PrivateRouter/PrivateRouter";
 
 const App = () => {
+  const isLogged = localStorage.getItem("token");
+
   return (
     <Router>
       <div className="container">
-        <div className="menu">
-          <Menu />
-        </div>
+        {isLogged && (
+          <div className="menu">
+            <Menu />
+          </div>
+        )}
 
         <div className="content">
           <Routes>
             <Route path="/" element={<LoginForm />} />
-            <Route path="/home" element={<Homepage />} />
-            <Route path="/user" element={<User />} />
-            <Route path="/edit-user/:id" element={<EditUser />} />
-            <Route path="/add-user" element={<AddUserForm />} />
-            <Route path="/restaurant" element={<Restaurant />} />
-            <Route path="/add-restaurant" element={<AddRestaurant />} />
-            <Route path="/list_food/:list_food" element={<ListFood />} />
+            <Route
+              path="/home"
+              element={
+                <PrivateRouter>
+                  <Homepage />
+                </PrivateRouter>
+              }
+            />
+            <Route
+              path="/user"
+              element={
+                <PrivateRouter>
+                  <User />
+                </PrivateRouter>
+              }
+            />
+            <Route
+              path="/edit-user/:id"
+              element={
+                <PrivateRouter>
+                  <EditUser />
+                </PrivateRouter>
+              }
+            />
+            <Route
+              path="/add-user"
+              element={
+                <PrivateRouter>
+                  <AddUserForm />
+                </PrivateRouter>
+              }
+            />
+            <Route
+              path="/restaurant"
+              element={
+                <PrivateRouter>
+                  <Restaurant />
+                </PrivateRouter>
+              }
+            />
+            <Route
+              path="/add-restaurant"
+              element={
+                <PrivateRouter>
+                  <AddRestaurant />
+                </PrivateRouter>
+              }
+            />
+            <Route
+              path="/list_food/:list_food"
+              element={
+                <PrivateRouter>
+                  <ListFood />
+                </PrivateRouter>
+              }
+            />
           </Routes>
         </div>
       </div>

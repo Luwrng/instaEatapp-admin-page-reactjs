@@ -13,4 +13,5 @@
   flex: 1;
   padding: 20px; /* Khoảng cách trong cho nội dung */
   background-color: #f0f2f5; /* Màu nền cho nội dung */
+  overflow-y: auto;
 }

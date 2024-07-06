@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Card, Col, Row, Pagination, Avatar, Button } from "antd";
+import {
+  Card,
+  Col,
+  Row,
+  Pagination,
+  Avatar,
+  Button,
+  Popconfirm,
+  message,
+} from "antd";
 import axios from "axios";
 import {
   UnorderedListOutlined,
@@ -10,6 +19,7 @@ import {
 } from "@ant-design/icons";
 import "./Restaurant.css";
 import { useNavigate } from "react-router-dom";
+import apiClient from "../../api/axios";
 
 const { Meta } = Card;
 
@@ -61,6 +71,16 @@ const Restaurant = () => {
   const endIndex = startIndex + pageSize;
   const currentCards = restaurants.slice(startIndex, endIndex);
 
+  const onDelete = async (id) => {
+    try {
+      await apiClient.delete("/Restaurant/" + id);
+      message.success("Delete successfully");
+      fetchRestaurants();
+    } catch (error) {
+      message.error("Internal server error!");
+    }
+  };
+
   return (
     <div>
       <Button
@@ -95,7 +115,15 @@ const Restaurant = () => {
                   key="list food"
                   onClick={() => handleViewFood(restaurant.restaurantId)}
                 />,
-                <DeleteOutlined />,
+                <Popconfirm
+                  title="Delete restaurant"
+                  description="Are you sure to delete this restaurant?"
+                  onConfirm={() => onDelete(restaurant.restaurantId)}
+                  okText="Yes"
+                  cancelText="No"
+                >
+                  <DeleteOutlined />
+                </Popconfirm>,
                 <EllipsisOutlined key="ellipsis" />,
                 <EditOutlined />,
               ]}

@@ -9,6 +9,7 @@ import { Avatar, Card, Pagination, Button, message, Modal } from "antd";
 import "./User.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import apiClient from "../../api/axios";
 
 const { Meta } = Card;
 const { confirm } = Modal;
@@ -17,35 +18,28 @@ const User = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [users, setUsers] = useState([]);
   const [totalItemsCount, setTotalItemsCount] = useState(0);
-  const [isAdmin, setIsAdmin] = useState(false); // State to track admin status
+  // const [isAdmin, setIsAdmin] = useState(false); // State to track admin status
   const pageSize = 18;
   const navigate = useNavigate();
 
   useEffect(() => {
     fetchUsers();
-    checkUserRole(); // Check user role on component mount
-  }, [currentPage]); // Call fetchUsers when currentPage changes
+    // checkUserRole(); // Check user role on component mount
+  }, []);
 
-  const checkUserRole = () => {
-    const roleId = localStorage.getItem("roleId");
-    setIsAdmin(roleId === "1"); // Assuming roleId 1 is for admin
-  };
+  // const checkUserRole = () => {
+  //   const roleId = localStorage.getItem("roleId");
+  //   setIsAdmin(roleId === "1"); // Assuming roleId 1 is for admin
+  // };
 
   const fetchUsers = async () => {
     try {
-      const token = localStorage.getItem("token");
-      const response = await axios.get(
-        "https://instaeat.azurewebsites.net/api/Account",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          params: {
-            page: currentPage,
-            pageSize: pageSize,
-          },
-        }
-      );
+      const response = await apiClient.get("/Account", {
+        params: {
+          page: currentPage,
+          pageSize: 9999,
+        },
+      });
       console.log(response.data);
       setUsers(response.data.items);
       setTotalItemsCount(response.data.totalItemsCount);
@@ -70,10 +64,10 @@ const User = () => {
   };
 
   const handleDeleteUser = (userId) => {
-    if (!isAdmin) {
-      message.error("Only admins can delete users.");
-      return;
-    }
+    // if (!isAdmin) {
+    //   message.error("Only admins can delete users.");
+    //   return;
+    // }
 
     confirm({
       title: "Are you sure you want to delete this user?",
@@ -132,7 +126,7 @@ const User = () => {
               boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
             }}
             actions={[
-              isAdmin && (
+              user?.roleId !== 1 && (
                 <DeleteOutlined
                   key="delete"
                   style={{ color: "red" }}
