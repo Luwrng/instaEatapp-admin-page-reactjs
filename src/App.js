@@ -10,6 +10,13 @@ import LoginForm from "./component/Login/LoginForm";
 import AddUserForm from "./component/user/AddUserForm";
 import AddRestaurant from "./component/restaurant/AddRestaurant";
 import PrivateRouter from "./component/PrivateRouter/PrivateRouter";
+import PackageManagement from "./component/package/PackageManagement";
+import AddPackage from "./component/package/AddPackage";
+import ReviewManagement from "./component/review/ReviewManagement";
+import TransactionManagement from "./component/transaction/TransactionManagement";
+import WalletManagement from "./component/wallet/WalletManagement";
+import RestaurantTransaction from "./component/order/RestaurantTransaction";
+import EditPackage from "./component/package/EditPackage";
 
 const App = () => {
   const isLogged = localStorage.getItem("token");
@@ -79,6 +86,73 @@ const App = () => {
               element={
                 <PrivateRouter>
                   <ListFood />
+                </PrivateRouter>
+              }
+            />
+
+            {/* package management */}
+            <Route
+              path="/package"
+              element={
+                <PrivateRouter>
+                  <PackageManagement />
+                </PrivateRouter>
+              }
+            />
+
+            <Route
+              path="/package/add"
+              element={
+                <PrivateRouter>
+                  <AddPackage />
+                </PrivateRouter>
+              }
+            />
+            <Route
+              path="/package/:id/edit"
+              element={
+                <PrivateRouter>
+                  <EditPackage />
+                </PrivateRouter>
+              }
+            />
+
+            {/* review management */}
+            <Route
+              path="/review"
+              element={
+                <PrivateRouter>
+                  <ReviewManagement />
+                </PrivateRouter>
+              }
+            />
+
+            {/* transaction */}
+            <Route
+              path="/transaction"
+              element={
+                <PrivateRouter>
+                  <TransactionManagement />
+                </PrivateRouter>
+              }
+            />
+
+            {/* wallet */}
+            <Route
+              path="/wallet"
+              element={
+                <PrivateRouter>
+                  <WalletManagement />
+                </PrivateRouter>
+              }
+            />
+
+            {/* restaurant transaction */}
+            <Route
+              path="/restaurant-transaction"
+              element={
+                <PrivateRouter>
+                  <RestaurantTransaction />
                 </PrivateRouter>
               }
             />

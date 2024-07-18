@@ -4,6 +4,8 @@ import {
   UserOutlined,
   ShopOutlined,
   LogoutOutlined,
+  UnorderedListOutlined,
+  TransactionOutlined,
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { Menu } from "antd";
@@ -33,6 +35,36 @@ const MenuComponent = () => {
     },
     {
       key: "3",
+      icon: <UnorderedListOutlined />,
+      label: "Restaurant transaction",
+      link: "/restaurant-transaction",
+    },
+    {
+      key: "4",
+      icon: <UnorderedListOutlined />,
+      label: "Package",
+      link: "/package",
+    },
+    {
+      key: "5",
+      icon: <UnorderedListOutlined />,
+      label: "Review",
+      link: "/review",
+    },
+    {
+      key: "6",
+      icon: <TransactionOutlined />,
+      label: "Transaction",
+      link: "/transaction",
+    },
+    {
+      key: "7",
+      icon: <TransactionOutlined />,
+      label: "Wallet",
+      link: "/wallet",
+    },
+    {
+      key: "8",
       icon: <LogoutOutlined />,
       label: "Logout",
       link: "/logout",
